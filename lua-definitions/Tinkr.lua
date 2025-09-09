@@ -2,8 +2,6 @@
 
 Tinkr = {}
 
-
-
 ---It is a userdata type used by the Tinkr API to reference an internal
 ---game object. This direct object reference is the most performant way to pass objects around.
 ---@class Tinkr.WowGameObject
@@ -421,3 +419,329 @@ function Tinkr.GeneratePathWeighted(x1, y1, z1, x2, y2, z2, mapId, callback) end
 ---```
 ---@return {continentID:number, areaID:number, parentAreaID:number}
 function Tinkr.GetAreaInfo() end
+
+---Returns the position of the players corpse.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/GetCorpsePosition/)<br>
+---Example:
+---```lua
+---local x, y, z = GetCorpsePosition(x, y, z)
+---```
+---@return number x, number y, number z
+function Tinkr.GetCorpsePosition() end
+
+---Returns the position of the players corpse.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/GetCorpsePosition/)<br>
+---Example:
+---```lua
+---local x, y, z = GetCorpseLocation(x, y, z)
+---```
+---@return number x, number y, number z
+function Tinkr.GetCorpseLocation() end
+
+---Returns the current mapID for use with GeneratePath.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/GetMapID/)<br>
+---Example:
+---```lua
+---local mapID = GetMapID()
+---```
+---@return number
+function Tinkr.GetMapID() end
+
+---Get the players current pitch<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/GetPitch/)<br>
+---Example:
+---```lua
+-----Slightly angle the character
+---
+---local theta = GetPitch() + 0.1
+---SetPitch(theta)
+---```
+---
+function Tinkr.GetPitch() end
+
+---Click to Move to a given position.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/MoveTo/)<br>
+---Example:
+---```lua
+-----Click to move to the target position.
+---
+---local x, y, z = ObjectPosition('target')
+---MoveTo(x, y, z)
+---```
+---@param x number
+---@param y number
+---@param z number
+function Tinkr.MoveTo(x, y, z) end
+
+---Click to Move to a raw position ignoring transport world relativity<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/MoveToRaw/)<br>
+---Example:
+---```lua
+---
+---local x, y, z = ObjectRawPosition('target')
+---MoveToRaw(x, y, z)
+---```
+function Tinkr.MoveToRaw(x, y, z) end
+
+---Set your players rotation instantly to face a direction using the games input controller<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/SetHeading/)<br>
+---Example:
+---```lua
+---local theta = ObjectRotation('player') + 0.1
+---SetHeading(theta)
+---```
+---@param theta number
+function Tinkr.SetHeading(theta) end
+
+---Returns the spellID of a WowGameObject representation of an Area Trigger<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/AreaTriggerSpell/)<br>
+---Example:
+---```lua
+---local id = AreaTriggerSpell(object)
+---```
+---@param object Tinkr.ObjectReference
+---@return number spellID
+function Tinkr.AreaTriggerSpell(object) end
+
+---Returns the gameobject type of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/GameObjectType/)<br>
+---Example:
+---```lua
+-----enum eGameObjType { 
+-----  GOT_Door=0, 
+-----  GOT_Button=1, 
+-----  GOT_QuestGiver=2, 
+-----  GOT_Chest=3, 
+-----  GOT_Binder=4, 
+-----  GOT_Generic=5, 
+-----  GOT_Trap=6, 
+-----  GOT_Chair=7, 
+-----  GOT_SpellFocus=8, 
+-----  GOT_Text=9, 
+-----  GOT_Goober=0xa, 
+-----  GOT_Transport=0xb, 
+-----  GOT_AreaDamage=0xc, 
+-----  GOT_Camera=0xd, 
+-----  GOT_WorldObj=0xe, 
+-----  GOT_MapObjTransport=0xf, 
+-----  GOT_DuelArbiter=0x10, 
+-----  GOT_FishingNode=0x11, 
+-----  GOT_Ritual=0x12, 
+-----  GOT_Mailbox=0x13, 
+-----  GOT_AuctionHouse=0x14, 
+-----  GOT_SpellCaster=0x16, 
+-----  GOT_MeetingStone=0x17, 
+-----  GOT_Unkown18=0x18, 
+-----  GOT_FishingPool=0x19, 
+-----  GOT_FORCEDWORD=0xFFFFFFFF, 
+-----};
+---local type = GameObjectType('target')
+---if type == 7 then
+---    print("OMG A chair, lets sit")
+---end
+---```
+---@return number|boolean
+function Tinkr.GameObjectType(object) end
+
+---Gets a list of all Missiles.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/Missiles/)<br>
+---Example 1:
+---```lua
+---local Missiles = Missiles()
+--- 
+---for i, missile in ipairs(Missiles) do
+---    -- handle missile
+---end 
+---```
+---Example 2:
+---```lua
+---for m in ObjectManager:Missiles() do
+---  -- inital -> hit
+---  -- draw:SetColor(255, 255, 255, 128)
+---  draw:Line(m.ix, m.iy, m.iz, m.hx, m.hy, m.hz)
+---
+---  -- current -> hit
+---  -- draw:SetColor(3, 252, 11, 256)
+---  draw:Line(m.cx, m.cy, m.cz, m.hx, m.hy, m.hz)
+---
+---  -- model -> hit
+---  if m.mx and m.my and m.mz then
+---    -- draw:SetColor(3, 252, 252, 256)
+---    draw:Line(m.mx, m.my, m.mz, m.hx, m.hy, m.hz)
+---  end
+---
+---  -- draw:SetColor(255, 255, 255, 255)
+---  local cdt = Common.Distance(m.cx, m.cy, m.cz, m.hx, m.hy, m.hz)
+---  local spell = GetSpellInfo(m.spellId)
+---  draw:Text((spell or m.spellId), "NumberFont_Small", m.cx, m.cy, m.cz + 1.35)
+---end
+---```
+function Tinkr.Missiles() end
+
+---Gets a single object.<br> All [WowGameObject](lua://Tinkr.WowGameObject) references are ephemeral, and should never 
+---be stored for use later. Use the object inside the context of the iteration or directly after obtaining it. 
+---There is no guarantee on an objects lifetime and they will be garbage collected as soon as possible.
+---[Documentation](https://docs.tinkr.site/Lua/Objects/Object/)<br>
+---Example:
+---```lua
+-----Geth a WowGameObject reference to the player.
+---
+---local object = Object('player')
+-- handle object
+---```
+---@param unitID string
+---@return Tinkr.WowGameObject
+function Tinkr.Object(unitID) end
+
+---Get an objects hidden aura<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectAura/)<br>
+---Example:
+---```lua
+---for i = 1, 40 do
+---    local _, _, count, _, _, _, _, _, _, spellId, _, _, _, _, _ = UnitAura("player", i, "HELPFUL")
+---    -- Do something with spellId
+---end
+---```
+---@param object Tinkr.ObjectReference
+---@param index number
+---@return any, any, number count, _, _, _, _, _, _, number spellID, _, _, _, _, _
+function Tinkr.ObjectAura(object, index) end
+
+---Returns the bounding radius of a [WowGameObject](lua://Tinkr.WowGameObject) in radians. This is the size of the object 
+---used for calculating attack range.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectBoundingRadius/)<br>
+---Example 1:
+---```lua
+-----Get the players radius.
+---
+---local radius = ObjectBoundingRadius('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the radius of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local radius = ObjectBoundingRadius(object)
+---    -- do something with radius
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number
+function Tinkr.ObjectBoundingRadius(objectReference) end
+
+---Returns the casting and channeling spell of a [WowGameObject](lua://Tinkr.WowGameObject).<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectCastingInfo/)<br>
+---Example:
+---```lua
+---local casting, channeling = ObjectCastingInfo('player')
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean, number
+function Tinkr.ObjectCastingInfo(objectReference) end
+
+---Returns a [WowGameObject](lua://Tinkr.WowGameObject) representing the destination for a units current spell cast.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectCastingTarget/)<br>
+---Example:
+---```lua
+---local target = ObjectCastingTarget('player')
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return Tinkr.WowGameObject|boolean
+function Tinkr.ObjectCastingTarget(objectReference) end
+
+---Returns the combat reach of a [WowGameObject](lua://Tinkr.WowGameObject).This is how far the unit 
+---can account an object from its position.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectCombatReach/)<br>
+---Example 1:
+---```lua
+-----Get the players current reach.
+---
+---local reach = ObjectCombatReach('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the reach of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local reach = ObjectCombatReach(object)
+---    -- do something with reach
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectCombatReach(objectReference) end
+
+---Returns the creator of the [WowGameObject](lua://Tinkr.WowGameObject). This would be used to check the 
+---creator of a fishing bobber for example.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectCreator/)<br>
+---Example:
+---```lua
+---local creator = ObjectCreator(object)<br>
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return Tinkr.ObjectReference|boolean
+function Tinkr.ObjectCreator(objectReference) end
+
+---Returns the creature type of a [WowGameObject](lua://Tinkr.WowGameObject).<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectCreatureType/)<br>
+---Example 1:
+---```lua
+-----Get the targets creature type.
+---
+---local type, typeStr = ObjectCreatureType('target')
+---```
+---Example 2:
+---```lua
+-----Do something with the create type of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local type, typeStr = ObjectCreatureType('target')
+---    print('target type is', type, 'a', typeStr)
+---    -- do something with type
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectCreatureType(objectReference) end
+
+---Returns the distance between two [WowGameObject](lua://Tinkr.WowGameObject)'s.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectDistance/)<br>
+---Example 1:
+---```lua
+-----Get the distance between the player and the target.
+---
+---local distance = ObjectDistance('player', 'target')
+---```
+---Example 2:
+---```lua
+-----Do something with the distance between the player and all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local distance = ObjectDistance('player', object)
+---    -- do something with distance
+---end
+---```
+---@param objectReference1 Tinkr.ObjectReference
+---@param objectReference2 Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectDistance(objectReference1, objectReference2) end
+
+---Set your players rotation instantly to face a direction using the games input controller<br>
+---[Documentation](https://docs.tinkr.site/Lua/Movement/SetPitch/)<br>
+---Example:
+---```lua
+---local theta = GetPitch() + 0.1
+---SetPitch(theta)
+---```
+---@param theta number
+function Tinkr.SetPitch(theta) end
+
+---@class Tinkr.Util
+Tinkr.Util = {}
+
+---@class Tinkr.Util.HTTP
+Tinkr.Util.HTTP = {}
+
+
+---@param request {url:string, headers: string[], body: string, fields: table<string, any>, files: table<string, string>, method:string, callback:fun(status:number, response: string)}
+function Tinkr.Util.HTTP:Request(request) end
