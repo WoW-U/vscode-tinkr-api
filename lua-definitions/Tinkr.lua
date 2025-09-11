@@ -726,6 +726,170 @@ function Tinkr.ObjectCreatureType(objectReference) end
 ---@return number|boolean
 function Tinkr.ObjectDistance(objectReference1, objectReference2) end
 
+---Returns the flags of a [WowGameObject](lua://Tinkr.WowGameObject).<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectFlags/)<br>
+---Example 1:
+---```lua
+-----Get a units flags.
+---
+---local flags1, flags2, flags3, flags4, unitFlags1, unitFlags2, dynamicFlags = ObjectFlags('target')
+---```
+---Example 2:
+---```lua
+-----Get an objects flags.
+---
+---local flags, animationFlags = ObjectFlags(object)
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean, number ...
+function Tinkr.ObjectFlags(objectReference) end
+
+---Returns the GUID of a [WowGameObject](lua://Tinkr.WowGameObject). This is equal to UnitGUID but supports any object<bR>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectGUID/)<br>
+---Example:
+---```lua
+-----Get a units guid.
+---local guid = ObjectGUID('target')
+---
+-----Check if object is the player
+---local pguid = ObjectGUID('player')
+---return pguid == guid
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return string|boolean
+function Tinkr.ObjectGUID(objectReference) end
+
+---Returns the hight of a [WowGameObject](lua://Tinkr.WowGameObject).<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectHeight/)<br>
+---Example 1:
+---```lua
+-----Get the players height.
+---
+---local height = ObjectHeight('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the heights of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local height = ObjectHeight(object)
+---    -- do something with height
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectHeight(objectReference) end
+
+---Returns the ID of a WowGameObject.
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectId/)<br>
+---Example 1:
+---```lua
+-----Get the targets id.
+---
+---local id = ObjectId('target')
+---```
+---
+---Example 2:
+---```lua
+---for i, object in ipairs(Objects()) do
+---    local id = ObjectId(object)
+---    -- do something with id
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectId(objectReference) end
+
+---Check if a WowGameObject is outside (AKA not in a cave).<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectIsOutdoors/)<br>
+---Example: 
+---```lua
+---local isoutside = ObjectIsOutdoors('target')
+---if isoutside then
+---    print("OMG The sun")
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return boolean
+function Tinkr.ObjectIsOutdoors(objectReference) end
+
+---Check if a WowGameObject is submerged (AKA in the water).<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectIsSubmerged/)<br>
+---Example:
+---```lua
+---local issubmerged = ObjectIsSubmerged('target')
+---if issubmerged then
+---    print("OMG The wet")
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return boolean
+function Tinkr.ObjectIsSubmerged(objectReference) end
+
+---Returns if a WowGameObject is lootable or not.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectLootable/)<br>
+---```lua
+---local lootable = ObjectLootable('target')<br>
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return boolean
+function Tinkr.ObjectLootable(objectReference) end
+
+---Returns the current movement state of a Unit<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectMovementFlag/)<br>
+---Example:
+---```lua
+---local Flags = { 
+---  NONE = 0x00000000, 
+---  FORWARD = 0x00000001, 
+---  BACKWARD = 0x00000002, 
+---  STRAFELEFT = 0x00000004, 
+---  STRAFERIGHT = 0x00000008, 
+---  TURNLEFT = 0x00000010, 
+---  TURNRIGHT = 0x00000020, 
+---  PITCHUP = 0x00000040, 
+---  PITCHDOWN = 0x00000080, 
+---  WALKMODE = 0x00000100, 
+---  ONTRANSPORT = 0x00000200, 
+---  LEVITATING = 0x00000400, 
+---  ROOT = 0x00000800, 
+---  FALLING = 0x00001000, 
+---  FALLINGFAR = 0x00002000, 
+---  PENDINGSTOP = 0x00004000, 
+---  PENDINGSTRAFESTOP = 0x00008000, 
+---  PENDINGFORWARD = 0x00010000, 
+---  PENDINGBACKWARD = 0x00020000, 
+---  PENDINGSTRAFELEFT = 0x00040000, 
+---  PENDINGSTRAFERIGHT = 0x00080000, 
+---  PENDINGROOT = 0x00100000, 
+---  SWIMMING = 0x00200000, 
+---  ASCENDING = 0x00400000, 
+---  DESCENDING = 0x00800000, 
+---  CAN_FLY = 0x01000000, 
+---  FLYING = 0x02000000, 
+---  SPLINEELEVATION = 0x04000000, 
+---  SPLINEENABLED = 0x08000000, 
+---  WATERWALKING = 0x10000000, 
+---  SAFEFALL = 0x20000000, 
+---  HOVER = 0x40000000 
+---} 
+---local flag = ObjectMovementFlag('target') 
+---if flag == Flags.FORWARD then print("YAY WALKING FORWARD") end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number
+function Tinkr.ObjectMovementFlag(objectReference) end
+
+---Returns the objectReference that the WowGameObject is moving on.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectMover/)<br>
+---Example:
+---```lua
+---local mover = ObjectMover('player')
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return Tinkr.ObjectReference|boolean
+function Tinkr.ObjectMover(objectReference) end
+
 ---Set your players rotation instantly to face a direction using the games input controller<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Movement/SetPitch/)<br>
 ---Example:
