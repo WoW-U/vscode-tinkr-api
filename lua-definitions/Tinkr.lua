@@ -7,6 +7,22 @@ Tinkr = {}
 ---@class Tinkr.WowGameObject
 Tinkr.WowGameObject = {}
 
+---@alias Tinkr.WowObjectType number
+---| 0 # Object
+---| 1 # Item,
+---| 2 # Container,
+---| 3 # AzeriteEmpoweredItem,
+---| 4 # AzeriteItem,
+---| 5 # Unit,
+---| 6 # Player,
+---| 7 # ActivePlayer,
+---| 8 # GameObject,
+---| 9 # DynamicObject,
+---| 10 # Corpse,
+---| 11 # AreaTrigger,
+---| 12 # SceneObject,
+---| 13 # ConversationData
+
 ---@alias Tinkr.ObjectReference Tinkr.WowGameObject|string Many of the Tinkr APIs accept an Object Reference as their argument
 
 ---Attempts to create a given directory.<br>
@@ -889,6 +905,306 @@ function Tinkr.ObjectMovementFlag(objectReference) end
 ---@param objectReference Tinkr.ObjectReference
 ---@return Tinkr.ObjectReference|boolean
 function Tinkr.ObjectMover(objectReference) end
+
+---Returns the name of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectName/)<br>
+---Example 1:
+---```lua
+-----Get the players name.
+---
+---local name = ObjectName('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the names of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local name = ObjectName(object)
+---    -- do something with name
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return string|boolean
+function Tinkr.ObjectName(objectReference) end
+
+---Returns the position of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectPosition/)<br>
+---Example 1:
+---```lua
+-----Get the players current position.
+---
+---local x, y, z = ObjectPosition('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the position of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local x, y, z = ObjectPosition(object)
+---    -- do something with x, y, z
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number x, number y, number z
+function Tinkr.ObjectPosition(objectReference) end
+
+---Returns the raw position of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectRawPosition/)<br>
+---Example 1:
+---```lua
+-----Get the players current position.
+---
+---local x, y, z = ObjectRawPosition('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the position of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local x, y, z = ObjectRawPosition(object)
+---    -- do something with x, y, z
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number x, number y, number z
+function Tinkr.ObjectRawPosition(objectReference) end
+
+---Returns the raw rotation of a WowGameObject in radians.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectRawRotation/)<br>
+---Example 1:
+---```lua
+---Get the players rotation.
+---
+---local rotation = ObjectRawRotation('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the rotations of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local rotation = ObjectRawRotation(object)
+---    -- do something with rotation
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean rotation
+function Tinkr.ObjectRawRotation(objectReference) end
+
+---Returns the rotation of a WowGameObject in radians.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectRotation/)<br>
+---Example 1:
+---```lua
+---Get the players rotation.
+---
+---local rotation = ObjectRotation('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the rotations of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local rotation = ObjectRotation(object)
+---    -- do something with rotation
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean rotation
+function Tinkr.ObjectRotation(objectReference) end
+
+---Returns if a WowGameObject is skinned or not.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectSkinnable/)<br>
+---Example:
+---```lua
+---local skinnable = ObjectSkinnable('target')
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return boolean
+function Tinkr.ObjectSkinnable(objectReference) end
+
+---Returns the skinning type of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectSkinningType/)<br>
+---Example:
+---```lua
+-----enum SkinType : int { 
+-----  HERBALISM = 0x100, 
+-----  MINING = 0x200, 
+-----  ENGINEERING = 0x8000 
+-----};
+---
+---local skintype = ObjectSkinningType('target')
+---if skintype == HERBALISM then
+---    print("OMG A HERB")
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectSkinningType(objectReference) end
+
+---Returns the spec ID of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectSpecializationID/)<br>
+---Example:
+---```lua
+----- look IDs at documentation page
+---local spec = ObjectSpecializationID('target')
+---if spec == Specs.BrewMaster then
+---    print("OMG A TANK")
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectSpecializationID(objectReference) end
+
+---Returns the type of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectType/)<br>
+---Example 1:
+---```lua
+-----Get the players current position.
+---
+---local name = ObjectType('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the names of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local name = ObjectType(object)
+---    -- do something with name
+---end
+---```
+---
+---Object Types:
+---```lua
+---Object = 0,
+---Item = 1,
+---Container = 2,
+---AzeriteEmpoweredItem = 3,
+---AzeriteItem = 4,
+---Unit = 5,
+---Player = 6,
+---ActivePlayer = 7,
+---GameObject = 8,
+---DynamicObject = 9,
+---Corpse = 10,
+---AreaTrigger = 11,
+---SceneObject = 12,
+---ConversationData = 13
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number|boolean
+function Tinkr.ObjectType(objectReference) end
+
+---Returns the world position of a WowGameObject. This is the position with any transport object accounted for.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectWorldPosition%20copy/)<br>
+---Example 1:
+---```lua
+-----Get the players current position.
+---
+---local x, y, z = ObjectWorldPosition('player')
+---```
+---Example 2:
+---```lua
+-----Do something with the position of all objects.
+---
+---for i, object in ipairs(Objects()) do
+---    local x, y, z = ObjectWorldPosition(object)
+---    -- do something with x, y, z
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number x, number y, number z
+function Tinkr.ObjectWorldPosition(objectReference) end
+
+---Gets a list of all objects.<br>
+---Note: All WowGameObject references are ephemeral, and should never be stored for use later. 
+---Use the object inside the context of the iteration or directly after obtaining it. There is no 
+---guarantee on an objects lifetime and they will be garbage collected as soon as possible.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/Objects/)<br>
+---Example:
+---```lua
+-----Iterate through all WowGameObject's.
+---
+---local objects = Objects()
+--- 
+---for i, object in ipairs(objects) do
+---    -- handle object
+---end
+---```
+---@param filterTypeID Tinkr.WowObjectType
+---@return Tinkr.WowGameObject[]
+function Tinkr.Objects(filterTypeID) end
+
+---Returns the duel team of a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/UnitDuelTeam/)<br>
+---Example:
+---```lua
+-----If two units are on the same team don't continue your rotation on them.
+---
+---local pdt = UnitDuelTeam('player')
+---local tdt = UnitDuelTeam('target')
+---if pdt == tdt then return end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return any
+function Tinkr.UnitDuelTeam(objectReference) end
+
+---Check if a WowGameObject is mounted.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/UnitIsMounted/)<br>
+---Example:
+---```lua
+---local ismounted = UnitIsMounted('target')
+---if ismounted then
+---    print("Dismount that alliance scum")
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return boolean
+function Tinkr.UnitIsMounted(objectReference) end
+
+---Check if a WowGameObject is sitting.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/UnitIsSitting/)<br>
+---Example:
+---```lua
+---local issitting = UnitIsSitting('target')
+---if issitting then
+---    print("Stand up you lazy bum!")
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return boolean
+function Tinkr.UnitIsSitting(objectReference) end
+
+---Return item levels for a WowGameObject.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/UnitItemLevels/)<br>
+---Example:
+---```lua
+---local equipped, current, avg, max = UnitItemLevels('player')
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return number equipped, number current, number avg, number max
+function Tinkr.UnitItemLevels(objectReference) end
+
+---Returns a WowGameObject representing the current loot target of an object.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/UnitLootTarget/)<br>
+---Example:
+---```lua
+---local target = ObjectLootTarget('player')
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return Tinkr.WowGameObject|boolean
+function Tinkr.UnitItemLevels(objectReference) end
+
+---Returns a WowGameObject shapeshift ID.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Objects/UnitShapeShiftID/)<br>
+---Example:
+---```lua
+---local isshifted = UnitShapeShiftID('target')
+---if isshifted then
+---    print("Druids and warriors are not cool!")
+---end
+---```
+---@param objectReference Tinkr.ObjectReference
+---@return boolean
+function Tinkr.UnitShapeShiftID(objectReference) end
 
 ---Set your players rotation instantly to face a direction using the games input controller<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Movement/SetPitch/)<br>
