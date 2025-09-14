@@ -1206,6 +1206,392 @@ function Tinkr.UnitItemLevels(objectReference) end
 ---@return boolean
 function Tinkr.UnitShapeShiftID(objectReference) end
 
+---Bring a window to the foreground<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/BringWindowToForeground/)<br>
+---Example:
+---```lua
+---if UnitIsDeadOrGhost('player') then BringWindowToForeground() end
+---```
+function Tinkr.BringWindowToForeground() end
+
+---Crash a client<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/Crash/)<br>
+---Example:
+---```lua
+---Crash()
+---```
+function Tinkr.Crash() end
+
+---Runs lua code in a unprotected environment.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/Eval/)<br>
+---Example:
+---```lua
+---Eval("JumpOrAscendStart()", "example.lua")<br>
+---```
+---@param code string
+---@param file string This file name is used in the Lua error dialog should something go wrong.
+function Tinkr.Eval(code, file) end
+
+---Calculates the distance in C land quicker than it can be done in Lua.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/FastDistance/)<br>
+---Example:
+---```lua
+-----Checks the distance between the player and target.
+---
+---local x1, y1, z1 = ObjectPosition('player')
+---local x2, y2, z2 = ObjectPosition('target')
+---local dist = FastDistance(x1, y1, z1, x2, y2, z2)
+---```
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@return number
+function Tinkr.FastDistance(x1, y1, z1, x2, y2, z2) end
+
+---Calculates the 2D distance in C land quicker than it can be done in Lua.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/FastDistance2D/)<br>
+---Example:
+---```lua
+---local x1, y1, z1 = ObjectPosition('player')
+---local x2, y2, z2 = ObjectPosition('target')
+---local dist = FastDistance2D(x1, y1, x2, y2)
+---```
+---@param x1 number
+---@param y1 number
+---@param x2 number
+---@param y2 number
+---@return number
+function Tinkr.FastDistance2D(x1, y1, x2, y2) end
+
+---Returns the architecture of a tinkr build<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/GetArchitecture/)<br>
+---Example:
+---```lua
+---local build = GetArchitecture()
+---if build == 'arm64' then return end
+---```
+---@return string architecture arm64/x86_64
+function Tinkr.GetArchitecture() end
+
+---Gets information about an auction (this is classic only).<br>
+---Returns current auction info for the given type and page index<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/GetAuctionInfo/)<br>
+---@param type string|"list"|"bidder"|"owner"
+---@param index number
+---@return number itemID, number expiresAt, number expiresAtString, string currentBid, number currentBidString, string, number buyout, string buyoutString, string creator
+function Tinkr.GetAuctionInfo(type, index) end
+
+---Gets the last time a game tick happened.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/GetGameTick/)<br>
+---Example:
+---```lua
+---local time = GetGameTick()
+---```
+---@return number time
+function Tinkr.GetGameTick() end
+
+---Gets the last time a game tick happened.<br>
+---See https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.6.sdk/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Events.h#L198 <br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/GetKeyState/)<br>
+---Example:
+---```lua
+---local keybindings = {}
+---
+---function OnKeysDown(keys)
+---    for k, v in pairs(keys) do
+---        if not GetKeyState(v) then
+---            return false
+---        end
+---    end
+---    return true
+---end
+---
+---function RegisterKeyBinding(keys, callback)
+---    table.insert(keybindings, { keys = keys, callback = callback })
+---end
+---
+---C_Timer.NewTicker(0.001, function()
+---    for k, v in pairs(keybindings) do
+---        if OnKeysDown(v.keys) then
+---            if not v.fired then
+---                v.fired = true
+---                v.callback(true)
+---            end
+---        else
+---            v.fired = nil
+---        end
+---    end
+---end)
+---
+---RegisterKeyBinding({ 0x38, 0x00 }, function()
+---    print("Shift+a executed")
+---end)
+---
+---```
+---@param CGKeyCode any
+---@return boolean
+function Tinkr.GetKeyState(CGKeyCode) end
+
+---GetLastHardwareActionTime returns the last time your game client received a hardware interaction<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/GetLastHardwareActionTime/)<br>
+---Example:
+---```lua
+---SetLastHardwareActionTime(GetLastHardwareActionTime() + 100)
+---```
+---@return number
+function Tinkr.GetLastHardwareActionTime() end
+
+---Check if a window is in the foreground<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/GetWindowStatus/)<br>
+---Example:
+---```lua
+----- Don't run rotation in the background
+---
+---if not GetWindowStatus() then return end
+---```
+---@return boolean
+function Tinkr.GetWindowStatus() end
+
+---Check if a the player is in the game world<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/IsInGame/)<br>
+---Example:
+---```lua
+---if not IsInGame() then return end
+---```
+---@return boolean
+function Tinkr.IsInGame() end
+
+---[Documentation](https://docs.tinkr.site/Lua/Utility/JSON-BSON/)<br>
+---@param string string json string
+---@return any
+function Tinkr.JsonDecode(string) end
+
+---[Documentation](https://docs.tinkr.site/Lua/Utility/JSON-BSON/)<br>
+---Example:
+---```lua
+---local object = { foo: "bar", baz: 123 }
+---local json = JsonEncode(object)
+---local bson = BsonEncode(object)
+---```
+---@param table any variable to encode
+---@return string
+function Tinkr.JsonEncode(table) end
+
+---[Documentation](https://docs.tinkr.site/Lua/Utility/JSON-BSON/)<br>
+---@param data any
+---@return any
+function Tinkr.BsonDecode(data) end
+
+---[Documentation](https://docs.tinkr.site/Lua/Utility/JSON-BSON/)<br>
+---Example:
+---```lua
+---local object = { foo: "bar", baz: 123 }
+---local json = JsonEncode(object)
+---local bson = BsonEncode(object)
+---```
+---@param table any variable to encode
+---@return any
+function Tinkr.BsonEncode(table) end
+
+---Kill a client<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/Kill/)<br>
+---Example:
+---```lua
+---Kill()
+---```
+function Tinkr.Kill() end
+
+---Log output to the console<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/Log/)<br>
+---Example:
+---```lua
+-----Print the player name to console.
+---
+---Log(ObjectName('player'))
+---```
+---@param str string
+function Tinkr.Log(str) end
+
+---Rotate a vector (x,y,z) and apply a distance calculation to it. <br>
+---For instance getting the vector 10 yards infront of the players facing direction.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/RotateVector/)<br>
+---Example:
+---```lua
+-----Get the Vector 10 yards infront of the direction of the player.
+---
+---local px, py, pz = ObjectPosition('player')
+---local theta = ObjectRotation('player')
+---local height = ObjectHeight('player')
+---
+---local X, Y, Z = RotateVector(px, py, pz, theta, 10);
+---```
+---@param x number
+---@param y number
+---@param z number
+---@param theta number
+---@param distance number
+function Tinkr.RotateVector(x, y, z, theta, distance) end
+
+---Returns the world position of a screen coordinate.<br>
+---The x and y paramaters should be between -1 and 1, (0,0) being the center of the screen, (-1,1) being the bottom left.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/ScreenToWorld/)<br>
+---Example:
+---```lua
+---Sets the mouseover unit to the target.
+---
+---local sx, sy = 0, 0
+---local hitFlags = bit.bor(0x1, 0x10, 0x100, 0x100000)
+---local x, y, z = ScreenToWorld(sx, sy, hitFlags)
+---```
+---Hit Flags:
+---```lua
+---M2Collision = 0x1
+---M2Render = 0x2
+---WMOCollision = 0x10
+---WMORender = 0x20
+---Terrain = 0x100
+---WaterWalkableLiquid = 0x10000
+---Liquid = 0x20000
+---EntityCollision = 0x100000
+---Unknown = 0x200000
+---```
+---@param x number
+---@param y number
+---@param hitFlags number
+function Tinkr.ScreenToWorld(x, y, hitFlags) end
+
+---Force a frame to not be forbidden, allowing lua interactiosn on it<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/SetForbiddenFrame/)<br>
+---Example:
+---```lua
+-----Allow lua click on a frame like the mailbox to send gold
+---
+---if SecureTransferDialog.Button1 and SecureTransferDialog.Button1:IsShown() and SecureTransferDialog.Button1:IsVisible() then
+---    SetForbiddenFrame(SecureTransferDialog.Button1, false)
+---    SetForbiddenFrame(SecureTransferButton.Button1[0], false)
+---
+---    Eval("SecureTransferButton.Button1:Click()", "eval")
+---end
+---```
+---@param frame any
+---@return boolean
+function Tinkr.SetForbiddenFrame(frame) end
+
+---SetLastHardwareActionTime updates the last input interaction time in the game client, mainly used to prevent AFK behaviors<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/SetLastHardwareActionTime/)<br>
+---Example:
+---```lua
+---SetLastHardwareActionTime(GetGameTick())
+---```
+---@param value number
+function Tinkr.SetLastHardwareActionTime(value) end
+
+---Returns the position of the camera.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/TraceLine/)<br>
+---Example:
+---```lua
+-----Checks the line of sight between the player and target.
+---
+---local x1, y1, z1 = ObjectPosition('player')
+---local x2, y2, z2 = ObjectPosition('target')
+---local hitFlags = bit.bor(0x1, 0x10, 0x100, 0x100000)
+---local x, y, z = TraceLine(x1, y1, z1, x2, y2, z2, hitFlags)
+---```
+---Hit Flags:
+---```lua
+---M2Collision = 0x1
+---M2Render = 0x2
+---WMOCollision = 0x10
+---WMORender = 0x20
+---Terrain = 0x100
+---WaterWalkableLiquid = 0x10000
+---Liquid = 0x20000
+---EntityCollision = 0x100000
+---Unknown = 0x200000
+---```
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param hitFlags number
+---@return number x, number y, number z
+function Tinkr.TraceLine(x1, y1, z1, x2, y2, z2, hitFlags) end
+
+---Returns the screen position of a world coordinate.<br>
+---The x and y values are values between -1 and 1, (0,0) being the center of the screen, (-1,1) being the bottom left.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/WorldToScreen/)<br>
+---Example:
+---```lua
+-----Sets the mouseover unit to the target.
+---
+---local x, y = WorldToScreen(x, y, z)
+---```
+---@param x number
+---@param y number
+---@param z number
+---@return number x, number y
+function Tinkr.WorldToScreen(x, y, z) end
+
+---Check if tinkr would have injected lua into the client (Sanity check mainly, if it would return false it wouldn't exist (probably))<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/WouldInject/)<br>
+---Example:
+---```lua
+-----Don't run rotation if we can't inject
+---
+---if not WouldInject() then return end
+---```
+---@return boolean
+function Tinkr.WouldInject() end
+
+---Do Zlib compression in C land.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/Zlib/)<br>
+---Example:
+---```lua
+-----Compress a string using the highest compression level.
+---
+---local input = ('This will be my long string.'):rep(10000)
+---local compressed = Defalte(input, 9)
+---local decompressed = Inflate(compressed)
+---print(decompressed == input and "Success!" or "Failure!")
+---```
+---@param string string
+---@param level number
+---@return any data
+function Tinkr.Defalte(string, level) end
+
+---Do Zlib decompression in C land.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/Zlib/)<br>
+---Example:
+---```lua
+-----Compress a string using the highest compression level.
+---
+---local input = ('This will be my long string.'):rep(10000)
+---local compressed = Defalte(input, 9)
+---local decompressed = Inflate(compressed)
+---print(decompressed == input and "Success!" or "Failure!")
+---```
+---@param data any
+---@return string
+function Tinkr.Inflate(data) end
+
+---loadstring but without lua taint.<br>
+---[Documentation](https://docs.tinkr.site/Lua/Utility/loadstringsecure/)<br>
+---Example:
+---```lua
+-----JumpOrAscendStart unlocked
+---
+---local lua = loadstringsecure("JumpOrAscendStart()")
+---lua() -- Execute the string loaded into the function
+---```
+---@param code string
+---@return function
+function Tinkr.loadstringsecure(code) end
+
 ---Set your players rotation instantly to face a direction using the games input controller<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Movement/SetPitch/)<br>
 ---Example:
