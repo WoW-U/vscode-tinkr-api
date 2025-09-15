@@ -1,5 +1,6 @@
 ---@meta _
 
+---@class Tinkr
 Tinkr = {}
 
 ---It is a userdata type used by the Tinkr API to reference an internal
@@ -390,7 +391,7 @@ function Tinkr.FaceObject(objectReference) end
 ---@param y2 number
 ---@param z2 number
 ---@param mapId number
----@return {x:number, y:number, z:number}[] points, number pathType 
+---@return {x:number, y:number, z:number}[] points, number pathType
 function Tinkr.GeneratePath(x1, y1, z1, x2, y2, z2, mapId) end
 
 ---GeneratePath a path between two positions for the given map ID, attaching an extra weight to each poly edge examined.<br>
@@ -402,17 +403,17 @@ function Tinkr.GeneratePath(x1, y1, z1, x2, y2, z2, mapId) end
 ---local px, py, pz = ObjectPosition('player')
 ---local tx, ty, tz = ObjectPosition('target')
 ---local mapID = GetMapID()
---- 
+---
 ---local weighted = function(ax, ay, az, bx, by, bz)
 ---    local extraWeight = 0.0 -- float
 ---    -- poly edge A is ax, ay, az
 ---    -- poly edge B is bx, by, bz
 ---    -- callback is for movement between poly edge A and B
---- 
+---
 ---    -- higher weights are avoided
 ---    return extraWeight
 ---end
---- 
+---
 ---local path = GeneratePathWeighted(px, py, pz, tx, ty, tz, mapID, weighted)
 ---```
 ---@param x1 number
@@ -523,33 +524,33 @@ function Tinkr.AreaTriggerSpell(object) end
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/GameObjectType/)<br>
 ---Example:
 ---```lua
------enum eGameObjType { 
------  GOT_Door=0, 
------  GOT_Button=1, 
------  GOT_QuestGiver=2, 
------  GOT_Chest=3, 
------  GOT_Binder=4, 
------  GOT_Generic=5, 
------  GOT_Trap=6, 
------  GOT_Chair=7, 
------  GOT_SpellFocus=8, 
------  GOT_Text=9, 
------  GOT_Goober=0xa, 
------  GOT_Transport=0xb, 
------  GOT_AreaDamage=0xc, 
------  GOT_Camera=0xd, 
------  GOT_WorldObj=0xe, 
------  GOT_MapObjTransport=0xf, 
------  GOT_DuelArbiter=0x10, 
------  GOT_FishingNode=0x11, 
------  GOT_Ritual=0x12, 
------  GOT_Mailbox=0x13, 
------  GOT_AuctionHouse=0x14, 
------  GOT_SpellCaster=0x16, 
------  GOT_MeetingStone=0x17, 
------  GOT_Unkown18=0x18, 
------  GOT_FishingPool=0x19, 
------  GOT_FORCEDWORD=0xFFFFFFFF, 
+-----enum eGameObjType {
+-----  GOT_Door=0,
+-----  GOT_Button=1,
+-----  GOT_QuestGiver=2,
+-----  GOT_Chest=3,
+-----  GOT_Binder=4,
+-----  GOT_Generic=5,
+-----  GOT_Trap=6,
+-----  GOT_Chair=7,
+-----  GOT_SpellFocus=8,
+-----  GOT_Text=9,
+-----  GOT_Goober=0xa,
+-----  GOT_Transport=0xb,
+-----  GOT_AreaDamage=0xc,
+-----  GOT_Camera=0xd,
+-----  GOT_WorldObj=0xe,
+-----  GOT_MapObjTransport=0xf,
+-----  GOT_DuelArbiter=0x10,
+-----  GOT_FishingNode=0x11,
+-----  GOT_Ritual=0x12,
+-----  GOT_Mailbox=0x13,
+-----  GOT_AuctionHouse=0x14,
+-----  GOT_SpellCaster=0x16,
+-----  GOT_MeetingStone=0x17,
+-----  GOT_Unkown18=0x18,
+-----  GOT_FishingPool=0x19,
+-----  GOT_FORCEDWORD=0xFFFFFFFF,
 -----};
 ---local type = GameObjectType('target')
 ---if type == 7 then
@@ -564,10 +565,10 @@ function Tinkr.GameObjectType(object) end
 ---Example 1:
 ---```lua
 ---local Missiles = Missiles()
---- 
+---
 ---for i, missile in ipairs(Missiles) do
 ---    -- handle missile
----end 
+---end
 ---```
 ---Example 2:
 ---```lua
@@ -594,8 +595,8 @@ function Tinkr.GameObjectType(object) end
 ---```
 function Tinkr.Missiles() end
 
----Gets a single object.<br> All [WowGameObject](lua://Tinkr.WowGameObject) references are ephemeral, and should never 
----be stored for use later. Use the object inside the context of the iteration or directly after obtaining it. 
+---Gets a single object.<br> All [WowGameObject](lua://Tinkr.WowGameObject) references are ephemeral, and should never
+---be stored for use later. Use the object inside the context of the iteration or directly after obtaining it.
 ---There is no guarantee on an objects lifetime and they will be garbage collected as soon as possible.
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/Object/)<br>
 ---Example:
@@ -623,7 +624,7 @@ function Tinkr.Object(unitID) end
 ---@return any, any, number count, _, _, _, _, _, _, number spellID, _, _, _, _, _
 function Tinkr.ObjectAura(object, index) end
 
----Returns the bounding radius of a [WowGameObject](lua://Tinkr.WowGameObject) in radians. This is the size of the object 
+---Returns the bounding radius of a [WowGameObject](lua://Tinkr.WowGameObject) in radians. This is the size of the object
 ---used for calculating attack range.<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectBoundingRadius/)<br>
 ---Example 1:
@@ -665,7 +666,7 @@ function Tinkr.ObjectCastingInfo(objectReference) end
 ---@return Tinkr.WowGameObject|boolean
 function Tinkr.ObjectCastingTarget(objectReference) end
 
----Returns the combat reach of a [WowGameObject](lua://Tinkr.WowGameObject).This is how far the unit 
+---Returns the combat reach of a [WowGameObject](lua://Tinkr.WowGameObject).This is how far the unit
 ---can account an object from its position.<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectCombatReach/)<br>
 ---Example 1:
@@ -687,7 +688,7 @@ function Tinkr.ObjectCastingTarget(objectReference) end
 ---@return number|boolean
 function Tinkr.ObjectCombatReach(objectReference) end
 
----Returns the creator of the [WowGameObject](lua://Tinkr.WowGameObject). This would be used to check the 
+---Returns the creator of the [WowGameObject](lua://Tinkr.WowGameObject). This would be used to check the
 ---creator of a fishing bobber for example.<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectCreator/)<br>
 ---Example:
@@ -818,7 +819,7 @@ function Tinkr.ObjectId(objectReference) end
 
 ---Check if a WowGameObject is outside (AKA not in a cave).<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectIsOutdoors/)<br>
----Example: 
+---Example:
 ---```lua
 ---local isoutside = ObjectIsOutdoors('target')
 ---if isoutside then
@@ -855,41 +856,41 @@ function Tinkr.ObjectLootable(objectReference) end
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectMovementFlag/)<br>
 ---Example:
 ---```lua
----local Flags = { 
----  NONE = 0x00000000, 
----  FORWARD = 0x00000001, 
----  BACKWARD = 0x00000002, 
----  STRAFELEFT = 0x00000004, 
----  STRAFERIGHT = 0x00000008, 
----  TURNLEFT = 0x00000010, 
----  TURNRIGHT = 0x00000020, 
----  PITCHUP = 0x00000040, 
----  PITCHDOWN = 0x00000080, 
----  WALKMODE = 0x00000100, 
----  ONTRANSPORT = 0x00000200, 
----  LEVITATING = 0x00000400, 
----  ROOT = 0x00000800, 
----  FALLING = 0x00001000, 
----  FALLINGFAR = 0x00002000, 
----  PENDINGSTOP = 0x00004000, 
----  PENDINGSTRAFESTOP = 0x00008000, 
----  PENDINGFORWARD = 0x00010000, 
----  PENDINGBACKWARD = 0x00020000, 
----  PENDINGSTRAFELEFT = 0x00040000, 
----  PENDINGSTRAFERIGHT = 0x00080000, 
----  PENDINGROOT = 0x00100000, 
----  SWIMMING = 0x00200000, 
----  ASCENDING = 0x00400000, 
----  DESCENDING = 0x00800000, 
----  CAN_FLY = 0x01000000, 
----  FLYING = 0x02000000, 
----  SPLINEELEVATION = 0x04000000, 
----  SPLINEENABLED = 0x08000000, 
----  WATERWALKING = 0x10000000, 
----  SAFEFALL = 0x20000000, 
----  HOVER = 0x40000000 
----} 
----local flag = ObjectMovementFlag('target') 
+---local Flags = {
+---  NONE = 0x00000000,
+---  FORWARD = 0x00000001,
+---  BACKWARD = 0x00000002,
+---  STRAFELEFT = 0x00000004,
+---  STRAFERIGHT = 0x00000008,
+---  TURNLEFT = 0x00000010,
+---  TURNRIGHT = 0x00000020,
+---  PITCHUP = 0x00000040,
+---  PITCHDOWN = 0x00000080,
+---  WALKMODE = 0x00000100,
+---  ONTRANSPORT = 0x00000200,
+---  LEVITATING = 0x00000400,
+---  ROOT = 0x00000800,
+---  FALLING = 0x00001000,
+---  FALLINGFAR = 0x00002000,
+---  PENDINGSTOP = 0x00004000,
+---  PENDINGSTRAFESTOP = 0x00008000,
+---  PENDINGFORWARD = 0x00010000,
+---  PENDINGBACKWARD = 0x00020000,
+---  PENDINGSTRAFELEFT = 0x00040000,
+---  PENDINGSTRAFERIGHT = 0x00080000,
+---  PENDINGROOT = 0x00100000,
+---  SWIMMING = 0x00200000,
+---  ASCENDING = 0x00400000,
+---  DESCENDING = 0x00800000,
+---  CAN_FLY = 0x01000000,
+---  FLYING = 0x02000000,
+---  SPLINEELEVATION = 0x04000000,
+---  SPLINEENABLED = 0x08000000,
+---  WATERWALKING = 0x10000000,
+---  SAFEFALL = 0x20000000,
+---  HOVER = 0x40000000
+---}
+---local flag = ObjectMovementFlag('target')
 ---if flag == Flags.FORWARD then print("YAY WALKING FORWARD") end
 ---```
 ---@param objectReference Tinkr.ObjectReference
@@ -1025,10 +1026,10 @@ function Tinkr.ObjectSkinnable(objectReference) end
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/ObjectSkinningType/)<br>
 ---Example:
 ---```lua
------enum SkinType : int { 
------  HERBALISM = 0x100, 
------  MINING = 0x200, 
------  ENGINEERING = 0x8000 
+-----enum SkinType : int {
+-----  HERBALISM = 0x100,
+-----  MINING = 0x200,
+-----  ENGINEERING = 0x8000
 -----};
 ---
 ---local skintype = ObjectSkinningType('target')
@@ -1115,8 +1116,8 @@ function Tinkr.ObjectType(objectReference) end
 function Tinkr.ObjectWorldPosition(objectReference) end
 
 ---Gets a list of all objects.<br>
----Note: All WowGameObject references are ephemeral, and should never be stored for use later. 
----Use the object inside the context of the iteration or directly after obtaining it. There is no 
+---Note: All WowGameObject references are ephemeral, and should never be stored for use later.
+---Use the object inside the context of the iteration or directly after obtaining it. There is no
 ---guarantee on an objects lifetime and they will be garbage collected as soon as possible.<br>
 ---[Documentation](https://docs.tinkr.site/Lua/Objects/Objects/)<br>
 ---Example:
@@ -1124,7 +1125,7 @@ function Tinkr.ObjectWorldPosition(objectReference) end
 -----Iterate through all WowGameObject's.
 ---
 ---local objects = Objects()
---- 
+---
 ---for i, object in ipairs(objects) do
 ---    -- handle object
 ---end
@@ -1611,3 +1612,51 @@ Tinkr.Util.HTTP = {}
 
 ---@param request {url:string, headers: string[], body: string, fields: table<string, any>, files: table<string, string>, method:string, callback:fun(status:number, response: string)}
 function Tinkr.Util.HTTP:Request(request) end
+
+---@class Tinkr.Util.Commands
+Tinkr.Util.Commands = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Commands/)<br>
+---@param prefix string
+---@return Tinkr.Util.Commands
+function Tinkr.Util.Commands:New(prefix) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Commands/)<br>
+---@param command string|string[]
+---@param handler function
+---@param help string
+---@param arguments string[]
+function Tinkr.Util.Commands:Register(command, handler, help, arguments) end
+
+---@class Tinkr.Common
+Tinkr.Common = {}
+
+---@class Tinkr.Common.HitFlags
+Tinkr.Common.HitFlags = {
+    M2Render = 0x2,
+    WMOCollision = 0x10,
+    WMORender = 0x20,
+    Terrain = 0x100,
+    WaterWalkableLiquid = 0x10000,
+    Liquid = 0x20000,
+    EntityCollision = 0x100000,
+    Unknown = 0x200000,
+    WaterOrLiquid = 1, -- todo: set proper value
+    All = 1,           -- todo: set proper value
+    Most = 1,          -- todo: set proper value
+}
+
+---@param number number
+---@param decimals number
+---@return number
+function Tinkr.Common.Round(number, decimals) end
+
+---@param x number
+---@param y number
+---@param flags number
+---@return number x, number y, number z
+function Tinkr.Common.ScreenToWorld(x, y, flags) end
+
+---@param length number
+---@return string
+function Tinkr.Common.RandomVariable(length) end
