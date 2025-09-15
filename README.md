@@ -1,7 +1,9 @@
 
 # Tinkr Lua API
 
-A Visual Studio Code extension that provides Lua library definitions for **Tinkr**, enabling IntelliSense, autocompletion, and type checking for Tinkr-specific APIs.
+A Visual Studio Code extension that provides Lua library definitions for [**Tinkr**](https://tinkr.site/), enabling IntelliSense, autocompletion, and type checking for Tinkr-specific APIs.
+
+[Join Discord](https://discord.gg/4mETWj9Wmb) to discuss and participate.
 
 ## Features
 
