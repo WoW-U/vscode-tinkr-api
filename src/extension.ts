@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Add the path to the `workspace.library` setting
     config.update('workspace.library', filtered, target)
         .then(() => {
-            vscode.window.showInformationMessage(`Added Tinkr Lua definitions to ${target === vscode.ConfigurationTarget.Workspace ? 'workspace' : 'global'} settings: ${luaDefinitionsPath}`);
+            // vscode.window.showInformationMessage(`Added Tinkr Lua definitions to ${target === vscode.ConfigurationTarget.Workspace ? 'workspace' : 'global'} settings: ${luaDefinitionsPath}`);
         }, (error) => {
             vscode.window.showErrorMessage(`Failed to update settings: ${error}`);
         });
