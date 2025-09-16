@@ -27,10 +27,10 @@ Here’s an example of how to use Tinkr APIs with autocompletion and type checki
 
 ```lua
 ---@type Tinkr
-local nn = ...
+local tinkr = ...
 
 -- Use Tinkr APIs with IntelliSense support
-nn.Utils.JSON.encode({a = "1"}) -- Autocompletion and type checking will work here
+local x, y, z = tinkr.GetCorpsePosition(x, y, z) -- Autocompletion and type checking will work here
 ```
 
 ## Requirements
