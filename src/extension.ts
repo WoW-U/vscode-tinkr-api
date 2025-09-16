@@ -18,21 +18,25 @@ export function activate(context: vscode.ExtensionContext) {
     // Get the current `workspace.library` setting
     const workspaceLibrary: string[] = config.get('workspace.library', []);
 
-    // Check if the path is already in the `workspace.library` setting
-    if (!workspaceLibrary.includes(luaDefinitionsPath)) {
-        // Determine the configuration target (workspace or global)
-        const target = vscode.workspace.workspaceFolders ? vscode.ConfigurationTarget.Workspace : vscode.ConfigurationTarget.Global;
+    const filtered: string[] = [];
+    for (const libPath of workspaceLibrary) {
+        if (libPath.indexOf("amstaffix.tinkr-lua-api") >= 0 || libPath.indexOf("vscode-tinkr-api") >= 0) {
+            continue;
+        }
 
-        // Add the path to the `workspace.library` setting
-        config.update('workspace.library', [...workspaceLibrary, luaDefinitionsPath], target)
-            .then(() => {
-                // vscode.window.showInformationMessage(`Added Tinkr Lua definitions to ${target === vscode.ConfigurationTarget.Workspace ? 'workspace' : 'global'} settings: ${luaDefinitionsPath}`);
-            }, (error) => {
-                vscode.window.showErrorMessage(`Failed to update settings: ${error}`);
-            });
-    } else {
-        // vscode.window.showInformationMessage('Tinkr Lua definitions are already configured.');
+        filtered.push(libPath);
     }
+    filtered.push(luaDefinitionsPath);
+    // Determine the configuration target (workspace or global)
+    const target = vscode.workspace.workspaceFolders ? vscode.ConfigurationTarget.Workspace : vscode.ConfigurationTarget.Global;
+
+    // Add the path to the `workspace.library` setting
+    config.update('workspace.library', filtered, target)
+        .then(() => {
+            vscode.window.showInformationMessage(`Added Tinkr Lua definitions to ${target === vscode.ConfigurationTarget.Workspace ? 'workspace' : 'global'} settings: ${luaDefinitionsPath}`);
+        }, (error) => {
+            vscode.window.showErrorMessage(`Failed to update settings: ${error}`);
+        });
 }
 
 export function deactivate() {
