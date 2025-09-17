@@ -17,9 +17,15 @@ const luaSettings = [
 
 export function configLuaLS(onDidChange: boolean) {
 	if (!wow_config.get("devMode")) {
-		setTinkrLibrary();
-		cleanConfigTarget(onDidChange);
+		setTimeout(() => {
+			setTinkrLibrary();
+			cleanConfigTarget(onDidChange);
+		}, getRandomArbitrary(100, 2000));
 	}
+}
+
+function getRandomArbitrary(min: number, max: number): number {
+	return Math.random() * (max - min) + min;
 }
 
 function getConfigurationTarget() {
@@ -52,6 +58,11 @@ function setTinkrLibrary() {
 	else if (configTarget === vscode.ConfigurationTarget.Workspace) {
 		libraryPath = lib?.workspaceValue as string[];
 	}
+
+	if (libraryPath.includes(folderPath)) {
+		return; // do nothing
+	}
+
 	let res: string[] = [];
 	// clean exclusively our old paths while not in development mode; otherwise yeet everything
 	if (!getIsDevelopment()) {
@@ -108,5 +119,5 @@ export function isConfigured() {
 	const config = vscode.workspace.getConfiguration("Lua");
 	// config.get returns the workspace config if it exists, otherwise the global user config
 	const lib = config.get("workspace.library") as string[];
-	return lib.find((value) => value.includes("tinkr-api"));
+	return lib.find((value) => value.includes("tinkr-api")) || lib.find((value) => value.includes("tinkr-lua-api"));;
 }

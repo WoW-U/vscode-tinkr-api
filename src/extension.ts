@@ -3,14 +3,20 @@ import * as vscode from "vscode";
 import { setIsDevelopment } from "./state";
 import * as luals from "./luals";
 
+let myOutputChannel: vscode.OutputChannel;
 let isLoaded = false;
 
 export async function activate(context: vscode.ExtensionContext) {
+	myOutputChannel = vscode.window.createOutputChannel("Tinkr API");
+	context.subscriptions.push(myOutputChannel);
+	myOutputChannel.appendLine("activate() func has been called");
+
 	console.log("loaded", context.extension.id);
 	setIsDevelopment(context.extensionMode === vscode.ExtensionMode.Development);
 	registerActivationCommand(context);
 
 	if (luals.isConfigured()) {
+		myOutputChannel.appendLine("extension is configured, lets recheck it.");
 		activateTinkrExtension(context);
 	}
 }
