@@ -2,12 +2,12 @@
   "name": "tinkr-lua-api",
   "displayName": "Tinkr Lua API",
   "description": "Tinkr Lua API",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.98.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages", "Linters"
   ],
   "publisher": "AmsTaFFix",
   "repository": {
@@ -15,11 +15,9 @@
     "url": "https://github.com/WoW-U/vscode-tinkr-api/tree/main"
   },
   "activationEvents": [
-    "onStartupFinished"
+    "onLanguage:lua"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
@@ -40,6 +38,33 @@
     "@vscode/test-electron": "^2.4.1"
   },
   "extensionDependencies": [
-		"sumneko.lua"
-	]
+    "sumneko.lua",
+    "ketho.wow-api"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "tinkrAPI.activateExtension",
+        "title": "Activate Tinkr API extension"
+      }
+    ],
+    "configuration": {
+      "title": "Tinkr API",
+      "properties": {
+        "tinkrAPI.luals.configurationScope": {
+          "type": "string",
+          "default": "Workspace",
+          "markdownDescription": "The configuration scope for automatically configured LuaLS settings",
+          "enum": [
+            "User",
+            "Workspace"
+          ],
+          "enumDescriptions": [
+            "Settings that apply globally to any instance of VS Code you open.",
+            "Settings stored inside your workspace and only apply when the workspace is opened."
+          ]
+        }
+      }
+    }
+  }
 }

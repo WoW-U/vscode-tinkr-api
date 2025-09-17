@@ -5,24 +5,14 @@ A Visual Studio Code extension that provides Lua library definitions for [**Tink
 
 [Join Discord](https://discord.gg/4mETWj9Wmb) to discuss and participate.
 
-## Features
+## Instructions
 
-- **Tinkr API Definitions**: Automatically adds Tinkr Lua definitions to the `Lua.workspace.library` setting.
-- **Seamless Integration**: Works with the [Lua extension by sumneko](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) to provide IntelliSense and type checking for Tinkr APIs.
-- **Easy Setup**: Just install the extension, and it will configure everything for you.
+- Press `CTRL + SHIFT + P` to open the command palette
+- type `Activate Tinkr API extension` and press enter
 
-## Installation
+![alt text](image.png)
 
-1. Open Visual Studio Code.
-2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing `Ctrl+Shift+X`.
-3. Search for "Tinkr Lua API".
-4. Click **Install** to install the extension.
-
-## Usage
-
-Once installed, the extension will automatically add the Tinkr Lua definitions to your workspace. You can start using Tinkr APIs with full IntelliSense support.
-
-### Example
+## Example
 Here’s an example of how to use Tinkr APIs with autocompletion and type checking:
 
 ```lua

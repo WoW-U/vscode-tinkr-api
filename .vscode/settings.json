@@ -9,13 +9,7 @@
 	// Turn off tsc task auto detection since we have the necessary tasks as npm scripts
 	"typescript.tsc.autoDetect": "off",
 	"Lua.workspace.library": [
-		".\\.types\\.SubModules\\BlizzardInterfaceCode",
-		"c:\\Users\\amsta\\.vscode\\extensions\\amstaffix.nilname-lua-api-0.0.1\\lua-definitions",
-		"c:\\Users\\amsta\\.vscode\\extensions\\amstaffix.nilname-lua-api-1.0.0\\lua-definitions",
-		"c:\\Users\\amsta\\.vscode\\extensions\\amstaffix.nilname-lua-api-1.1.3\\lua-definitions",
-		"c:\\Users\\amsta\\.vscode\\extensions\\amstaffix.gmr-lua-api-1.0.0\\lua-definitions",
-		"c:\\Users\\amsta\\.vscode\\extensions\\amstaffix.gmr-lua-api-1.6.1\\lua-definitions",
-		"~\\.vscode\\extensions\\ketho.wow-api-0.21.0\\Annotations\\Core"
+		"~\\.vscode\\extensions\\ketho.wow-api-0.21.0\\Annotations\\Core",
 	],
 	"Lua.runtime.version": "Lua 5.1",
 	"Lua.runtime.builtin": {
