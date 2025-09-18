@@ -1462,6 +1462,7 @@ function Tinkr.RotateVector(x, y, z, theta, distance) end
 ---@param x number
 ---@param y number
 ---@param hitFlags number
+---@return number x, number y, number z
 function Tinkr.ScreenToWorld(x, y, hitFlags) end
 
 ---Force a frame to not be forbidden, allowing lua interactiosn on it<br>
