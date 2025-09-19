@@ -557,6 +557,7 @@ function Tinkr.AreaTriggerSpell(object) end
 ---    print("OMG A chair, lets sit")
 ---end
 ---```
+---@param object Tinkr.ObjectReference
 ---@return number|boolean
 function Tinkr.GameObjectType(object) end
 
@@ -604,7 +605,7 @@ function Tinkr.Missiles() end
 -----Geth a WowGameObject reference to the player.
 ---
 ---local object = Object('player')
--- handle object
+----- handle object
 ---```
 ---@param unitID string
 ---@return Tinkr.WowGameObject
