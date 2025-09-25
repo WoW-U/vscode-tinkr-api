@@ -1662,3 +1662,287 @@ function Tinkr.Common.ScreenToWorld(x, y, flags) end
 ---@param length number
 ---@return string
 function Tinkr.Common.RandomVariable(length) end
+
+---@class Tinkr.Util.Config
+Tinkr.Util.Config = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Config/)<br>
+---Example:
+---```lua
+---local Tinkr = ...
+---local Config = Tinkr.Util.Config
+---
+---local my_config = Config:New('my_config')
+---
+---my_config:Write('foo', 'something')
+---my_config:Write('bar', 'awesome')
+---
+---local foo = my_config:Read('foo', 'default value')
+---local baz = my_config:Read('baz', 'default value')
+---
+---print(foo) -- something
+---print(baz) -- default value
+---```
+---@param name string
+---@return Tinkr.Util.Config
+function Tinkr.Util.Config:New(name) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Config/)<br>
+---Example:
+---```lua
+---local Tinkr = ...
+---local Config = Tinkr.Util.Config
+---
+---local my_config = Config:New('my_config')
+---
+---my_config:Write('foo', 'something')
+---my_config:Write('bar', 'awesome')
+---
+---local foo = my_config:Read('foo', 'default value')
+---local baz = my_config:Read('baz', 'default value')
+---
+---print(foo) -- something
+---print(baz) -- default value
+---```
+---@param key string
+---@param default any
+---@return any value
+function Tinkr.Util.Config:Read(key, default) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Config/)<br>
+---Example:
+---```lua
+---local Tinkr = ...
+---local Config = Tinkr.Util.Config
+---
+---local my_config = Config:New('my_config')
+---
+---my_config:Write('foo', 'something')
+---my_config:Write('bar', 'awesome')
+---
+---local foo = my_config:Read('foo', 'default value')
+---local baz = my_config:Read('baz', 'default value')
+---
+---print(foo) -- something
+---print(baz) -- default value
+---```
+---@param key string
+---@param value any
+function Tinkr.Util.Config:Write(key, value) end
+
+---@class Tinkr.Util.Crypto
+Tinkr.Util.Crypto = {}
+
+---@class Tinkr.Util.Crypto.AES
+Tinkr.Util.Crypto.AES = {}
+
+---Create a random initialization vector, store this for decryption<br>
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local AES = Tinkr.Util.Crypto.AES
+---local Common = Tinkr.Common
+--- 
+---local iv = AES:IV() -- Create a random initialization vector, store this for decryption
+---local key = Common.RandomVariable(32) -- The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
+--- 
+---local input = 'this is my encrypted message'
+--- 
+---local encrypted = AES:Encrypt(input, key, iv)
+---local decrypted = AES:Decrypt(encrypted, key, iv)
+--- 
+---print(decrypted == input)
+---```
+---@return string
+function Tinkr.Util.Crypto.AES:IV() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local AES = Tinkr.Util.Crypto.AES
+---local Common = Tinkr.Common
+--- 
+---local iv = AES:IV() -- Create a random initialization vector, store this for decryption
+---local key = Common.RandomVariable(32) -- The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
+--- 
+---local input = 'this is my encrypted message'
+--- 
+---local encrypted = AES:Encrypt(input, key, iv)
+---local decrypted = AES:Decrypt(encrypted, key, iv)
+--- 
+---print(decrypted == input)
+---```
+---@param input string
+---@param key string The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
+---@param iv string
+---@return string
+function Tinkr.Util.Crypto.AES:Encrypt(input, key, iv) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local AES = Tinkr.Util.Crypto.AES
+---local Common = Tinkr.Common
+--- 
+---local iv = AES:IV() -- Create a random initialization vector, store this for decryption
+---local key = Common.RandomVariable(32) -- The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
+--- 
+---local input = 'this is my encrypted message'
+--- 
+---local encrypted = AES:Encrypt(input, key, iv)
+---local decrypted = AES:Decrypt(encrypted, key, iv)
+--- 
+---print(decrypted == input)
+---```
+---@param input string
+---@param key string The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
+---@param iv string
+---@return string
+function Tinkr.Util.Crypto.AES:Decrypt(input, key, iv) end
+
+---@class Tinkr.Util.Crypto.Hash
+Tinkr.Util.Crypto.Hash = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Hash = Tinkr.Util.Crypto.Hash
+--- 
+---local hashed = Hash:SHA3('some value to be hashed')
+---print(hashed)
+--- 
+----- algo must be one of md5, sha1 or sha256
+---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
+---print(hashed)
+---```
+---@param input string
+---@return string
+function Tinkr.Util.Crypto.Hash:MD5(input) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Hash = Tinkr.Util.Crypto.Hash
+--- 
+---local hashed = Hash:SHA3('some value to be hashed')
+---print(hashed)
+--- 
+----- algo must be one of md5, sha1 or sha256
+---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
+---print(hashed)
+---```
+---@param input string
+---@return string
+function Tinkr.Util.Crypto.Hash:SHA1(input) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Hash = Tinkr.Util.Crypto.Hash
+--- 
+---local hashed = Hash:SHA3('some value to be hashed')
+---print(hashed)
+--- 
+----- algo must be one of md5, sha1 or sha256
+---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
+---print(hashed)
+---```
+---@param input string
+---@return string
+function Tinkr.Util.Crypto.Hash:SHA2(input) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Hash = Tinkr.Util.Crypto.Hash
+--- 
+---local hashed = Hash:SHA3('some value to be hashed')
+---print(hashed)
+--- 
+----- algo must be one of md5, sha1 or sha256
+---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
+---print(hashed)
+---```
+---@param input string
+---@return string
+function Tinkr.Util.Crypto.Hash:SHA256(input) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Hash = Tinkr.Util.Crypto.Hash
+--- 
+---local hashed = Hash:SHA3('some value to be hashed')
+---print(hashed)
+--- 
+----- algo must be one of md5, sha1 or sha256
+---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
+---print(hashed)
+---```
+---@param input string
+---@return string
+function Tinkr.Util.Crypto.Hash:SHA3(input) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Hash = Tinkr.Util.Crypto.Hash
+--- 
+---local hashed = Hash:SHA3('some value to be hashed')
+---print(hashed)
+--- 
+----- algo must be one of md5, sha1 or sha256
+---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
+---print(hashed)
+---```
+---@param algo string|"sha256"
+---@param input string
+---@param key string
+---@return string
+function Tinkr.Util.Crypto.Hash:HMAC(algo, input, key) end
+
+---@class Tinkr.Util.Crypto.Base64
+Tinkr.Util.Crypto.Base64 = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Base64 = Tinkr.Util.Crypto.Base64
+--- 
+---local input = "this is a message to be encoded"
+--- 
+---local encoded = Base64:Encode(input)
+---local decoded = Base64:Decode(encoded)
+--- 
+---print(decoded == input)
+---```
+---@param input string
+---@return string
+function Tinkr.Util.Crypto.Base64:Encode(input) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Crypto/)<br>
+---Example:<br>
+---```lua
+---local Tinkr = ...
+---local Base64 = Tinkr.Util.Crypto.Base64
+--- 
+---local input = "this is a message to be encoded"
+--- 
+---local encoded = Base64:Encode(input)
+---local decoded = Base64:Decode(encoded)
+--- 
+---print(decoded == input)
+---```
+---@param input string
+---@return string
+function Tinkr.Util.Crypto.Base64:Decode(input) end
