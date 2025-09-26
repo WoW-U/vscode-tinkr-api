@@ -2211,3 +2211,47 @@ function Tinkr.Util.Modules.Draw:Arc(x, y, z, size, arc, rotation) end
 ---@param l number
 ---@param rot number
 function Tinkr.Util.Modules.Draw:Rectangle(x, y, z, w, l, rot) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@class Tinkr.Util.Modules.Evaluator
+Tinkr.Util.Modules.Evaluator = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param length number
+---@return string
+function Tinkr.Util.Modules.Evaluator:RandomVariable(length) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param func function
+function Tinkr.Util.Modules.Evaluator:InjectGlobals(func) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param file any
+---@param args any
+function Tinkr.Util.Modules.Evaluator:LoadEncrypted(file, args) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param input any
+---@param ... any
+function Tinkr.Util.Modules.Evaluator:Load(input, ...) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param input any
+---@param args any
+---@param path any
+function Tinkr.Util.Modules.Evaluator:LoadString(input, args, path) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param func function
+---@param ... any
+function Tinkr.Util.Modules.Evaluator:CallProtectedFunction(func, ...) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param buffer any
+---@param args any
+---@param path any
+function Tinkr.Util.Modules.Evaluator:LoadEncBuffer(buffer, args, path) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
+---@param global any
+function Tinkr.Util.Modules.Evaluator:EmplaceGlobals(global) end
