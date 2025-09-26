@@ -1743,15 +1743,15 @@ Tinkr.Util.Crypto.AES = {}
 ---local Tinkr = ...
 ---local AES = Tinkr.Util.Crypto.AES
 ---local Common = Tinkr.Common
---- 
+---
 ---local iv = AES:IV() -- Create a random initialization vector, store this for decryption
 ---local key = Common.RandomVariable(32) -- The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
---- 
+---
 ---local input = 'this is my encrypted message'
---- 
+---
 ---local encrypted = AES:Encrypt(input, key, iv)
 ---local decrypted = AES:Decrypt(encrypted, key, iv)
---- 
+---
 ---print(decrypted == input)
 ---```
 ---@return string
@@ -1763,15 +1763,15 @@ function Tinkr.Util.Crypto.AES:IV() end
 ---local Tinkr = ...
 ---local AES = Tinkr.Util.Crypto.AES
 ---local Common = Tinkr.Common
---- 
+---
 ---local iv = AES:IV() -- Create a random initialization vector, store this for decryption
 ---local key = Common.RandomVariable(32) -- The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
---- 
+---
 ---local input = 'this is my encrypted message'
---- 
+---
 ---local encrypted = AES:Encrypt(input, key, iv)
 ---local decrypted = AES:Decrypt(encrypted, key, iv)
---- 
+---
 ---print(decrypted == input)
 ---```
 ---@param input string
@@ -1786,15 +1786,15 @@ function Tinkr.Util.Crypto.AES:Encrypt(input, key, iv) end
 ---local Tinkr = ...
 ---local AES = Tinkr.Util.Crypto.AES
 ---local Common = Tinkr.Common
---- 
+---
 ---local iv = AES:IV() -- Create a random initialization vector, store this for decryption
 ---local key = Common.RandomVariable(32) -- The key length must be 16 (128-bit), 24 (192-bit) or 32 (256-bit)
---- 
+---
 ---local input = 'this is my encrypted message'
---- 
+---
 ---local encrypted = AES:Encrypt(input, key, iv)
 ---local decrypted = AES:Decrypt(encrypted, key, iv)
---- 
+---
 ---print(decrypted == input)
 ---```
 ---@param input string
@@ -1811,10 +1811,10 @@ Tinkr.Util.Crypto.Hash = {}
 ---```lua
 ---local Tinkr = ...
 ---local Hash = Tinkr.Util.Crypto.Hash
---- 
+---
 ---local hashed = Hash:SHA3('some value to be hashed')
 ---print(hashed)
---- 
+---
 ----- algo must be one of md5, sha1 or sha256
 ---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
 ---print(hashed)
@@ -1828,10 +1828,10 @@ function Tinkr.Util.Crypto.Hash:MD5(input) end
 ---```lua
 ---local Tinkr = ...
 ---local Hash = Tinkr.Util.Crypto.Hash
---- 
+---
 ---local hashed = Hash:SHA3('some value to be hashed')
 ---print(hashed)
---- 
+---
 ----- algo must be one of md5, sha1 or sha256
 ---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
 ---print(hashed)
@@ -1845,10 +1845,10 @@ function Tinkr.Util.Crypto.Hash:SHA1(input) end
 ---```lua
 ---local Tinkr = ...
 ---local Hash = Tinkr.Util.Crypto.Hash
---- 
+---
 ---local hashed = Hash:SHA3('some value to be hashed')
 ---print(hashed)
---- 
+---
 ----- algo must be one of md5, sha1 or sha256
 ---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
 ---print(hashed)
@@ -1862,10 +1862,10 @@ function Tinkr.Util.Crypto.Hash:SHA2(input) end
 ---```lua
 ---local Tinkr = ...
 ---local Hash = Tinkr.Util.Crypto.Hash
---- 
+---
 ---local hashed = Hash:SHA3('some value to be hashed')
 ---print(hashed)
---- 
+---
 ----- algo must be one of md5, sha1 or sha256
 ---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
 ---print(hashed)
@@ -1879,10 +1879,10 @@ function Tinkr.Util.Crypto.Hash:SHA256(input) end
 ---```lua
 ---local Tinkr = ...
 ---local Hash = Tinkr.Util.Crypto.Hash
---- 
+---
 ---local hashed = Hash:SHA3('some value to be hashed')
 ---print(hashed)
---- 
+---
 ----- algo must be one of md5, sha1 or sha256
 ---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
 ---print(hashed)
@@ -1896,10 +1896,10 @@ function Tinkr.Util.Crypto.Hash:SHA3(input) end
 ---```lua
 ---local Tinkr = ...
 ---local Hash = Tinkr.Util.Crypto.Hash
---- 
+---
 ---local hashed = Hash:SHA3('some value to be hashed')
 ---print(hashed)
---- 
+---
 ----- algo must be one of md5, sha1 or sha256
 ---local hashed = Hash:HMAC('sha256', 'some value to be hashed', 'super secret key')
 ---print(hashed)
@@ -1918,12 +1918,12 @@ Tinkr.Util.Crypto.Base64 = {}
 ---```lua
 ---local Tinkr = ...
 ---local Base64 = Tinkr.Util.Crypto.Base64
---- 
+---
 ---local input = "this is a message to be encoded"
---- 
+---
 ---local encoded = Base64:Encode(input)
 ---local decoded = Base64:Decode(encoded)
---- 
+---
 ---print(decoded == input)
 ---```
 ---@param input string
@@ -1935,12 +1935,12 @@ function Tinkr.Util.Crypto.Base64:Encode(input) end
 ---```lua
 ---local Tinkr = ...
 ---local Base64 = Tinkr.Util.Crypto.Base64
---- 
+---
 ---local input = "this is a message to be encoded"
---- 
+---
 ---local encoded = Base64:Encode(input)
 ---local decoded = Base64:Decode(encoded)
---- 
+---
 ---print(decoded == input)
 ---```
 ---@param input string
@@ -2018,7 +2018,7 @@ function Tinkr.Util.Modules.Draw:CameraPosition() end
 ---@param fromHigh any
 ---@param toLow any
 ---@param toHigh any
-function Tinkr.Util.Modules.Draw:Map(value, fromLow, fromHigh, toLow, toHigh)  end
+function Tinkr.Util.Modules.Draw:Map(value, fromLow, fromHigh, toLow, toHigh) end
 
 ---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
 ---@param r number
@@ -2137,7 +2137,7 @@ function Tinkr.Util.Modules.Draw:Cylinder(x, y, z, radius, height) end
 ---@param z number
 ---@param rotationX number
 ---@param rotationY number
----@param rotationZ number  
+---@param rotationZ number
 function Tinkr.Util.Modules.Draw:Array(vectors, x, y, z, rotationX, rotationY, rotationZ) end
 
 ---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
@@ -2255,3 +2255,26 @@ function Tinkr.Util.Modules.Evaluator:LoadEncBuffer(buffer, args, path) end
 ---[Documentation](https://docs.tinkr.site/Modules/Util/Evaluator/)<br>
 ---@param global any
 function Tinkr.Util.Modules.Evaluator:EmplaceGlobals(global) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Event/)
+---@class Tinkr.Util.Modules.Event
+Tinkr.Util.Modules.Event = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Event/)
+---@param event string
+---@param callback function
+function Tinkr.Util.Modules.Event:Register(event, callback) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Event/)
+---@param event string
+---@param ... any
+function Tinkr.Util.Modules.Event:Emit(event, ...) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Event/)
+---@param id any
+---@param callback function
+function Tinkr.Util.Modules.Event:RemoveListener(id, callback) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Event/)
+---@param event string
+function Tinkr.Util.Modules.Event:GetListeners(event) end
