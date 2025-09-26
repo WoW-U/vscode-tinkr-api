@@ -14,6 +14,9 @@
 - Tinkr.Util.Modules.JSON
 - Tinkr.Util.Modules.LibStub
 - Tinkr.Util.Movement
+- Tinkr.Util.Modules.ObjectManager
+- Tinkr.Util.Modules.Script
+- Tinkr.Util.Modules.Vector3
 
 ### Changed
 

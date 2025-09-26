@@ -2489,3 +2489,119 @@ function Tinkr.Util.Movement:DisableMovements() end
 ---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
 ---@return boolean, boolean
 function Tinkr.Util.Movement:EnableMovements() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/ObjectManager/)<br>
+---@class Tinkr.Util.Modules.ObjectManager
+Tinkr.Util.Modules.ObjectManager = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/ObjectManager/)<br>
+---@param objectType number
+function Tinkr.Util.Modules.ObjectManager:Filter(objectType) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/ObjectManager/)<br>
+---@param object Tinkr.ObjectReference
+function Tinkr.Util.Modules.ObjectManager:UnitCanBeLooted(object) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/ObjectManager/)<br>
+---@param object Tinkr.ObjectReference
+function Tinkr.Util.Modules.ObjectManager:UnitCanBeSkinned(object) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/ObjectManager/)<br>
+---@param objectA Tinkr.ObjectReference
+---@param objectB Tinkr.ObjectReference
+function Tinkr.Util.Modules.ObjectManager:hasLineOfSight(objectA, objectB) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/ObjectManager/)<br>
+---@param objectType number
+function Tinkr.Util.Modules.ObjectManager:Objects(objectType) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/ObjectManager/)<br>
+function Tinkr.Util.Modules.ObjectManager:Missiles() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Script/)<br>
+---@class Tinkr.Util.Modules.Script
+Tinkr.Util.Modules.Script = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Script/)<br>
+---@param file any
+function Tinkr.Util.Modules.Script:Load(file) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Script/)<br>
+---@param file any
+function Tinkr.Util.Modules.Script:Test(file) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Script/)<br>
+function Tinkr.Util.Modules.Script:Autoload() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Script/)<br>
+function Tinkr.Util.Modules.Script:HookAddons() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Script/)<br>
+function Tinkr.Util.Modules.Script:UpgradeLauncher() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@class Tinkr.Util.Modules.Vector3
+Tinkr.Util.Modules.Vector3 = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:__add(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:__sub(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:__mul(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:__div(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:__eq(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+function Tinkr.Util.Modules.Vector3:__unm() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+function Tinkr.Util.Modules.Vector3:__tostring() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+function Tinkr.Util.Modules.Vector3:Zero() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+function Tinkr.Util.Modules.Vector3:Length() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param x number
+---@param y number
+---@param z number
+function Tinkr.Util.Modules.Vector3:Set(x, y, z) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+function Tinkr.Util.Modules.Vector3:Normal() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:Dot(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:Cross(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:Distance(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param vector any
+function Tinkr.Util.Modules.Vector3:Facing(vector) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Vector3/)<br>
+---@param x number
+---@param y number
+---@param z number
+function Tinkr.Util.Modules.Vector3:New(x, y, z) end
