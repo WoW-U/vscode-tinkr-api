@@ -1998,3 +1998,216 @@ function Tinkr.Util.Modules.Detour:DebugPath(path, color) end
 
 ---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
 function Tinkr.Util.Modules.Detour:DebugTiles() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@class Tinkr.Util.Modules.Draw
+Tinkr.Util.Modules.Draw = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param wx number
+---@param wy number
+---@param wz number
+function Tinkr.Util.Modules.Draw:WorldToScreen(wx, wy, wz) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+function Tinkr.Util.Modules.Draw:CameraPosition() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param value any
+---@param fromLow any
+---@param fromHigh any
+---@param toLow any
+---@param toHigh any
+function Tinkr.Util.Modules.Draw:Map(value, fromLow, fromHigh, toLow, toHigh)  end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param r number
+---@param g number
+---@param b number
+---@param a number
+function Tinkr.Util.Modules.Draw:SetColor(r, g, b, a) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param r number
+---@param g number
+---@param b number
+---@param a number
+function Tinkr.Util.Modules.Draw:SetColorRaw(r, g, b, a) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param a number
+function Tinkr.Util.Modules.Draw:SetAlpha(a) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param ax number
+---@param ay number
+---@param az number
+---@param bx number
+---@param by number
+---@param bz number
+function Tinkr.Util.Modules.Draw:Distance(ax, ay, az, bx, by, bz) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param x1 number
+---@param y1 number
+---@param x2 number
+---@param y2 number
+function Tinkr.Util.Modules.Draw:Distance2D(x1, y1, x2, y2) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param width number
+function Tinkr.Util.Modules.Draw:SetWidth(width) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param cx number
+---@param cy number
+---@param cz number
+---@param px number
+---@param py number
+---@param pz number
+---@param r number
+function Tinkr.Util.Modules.Draw:RotateX(cx, cy, cz, px, py, pz, r) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param cx number
+---@param cy number
+---@param cz number
+---@param px number
+---@param py number
+---@param pz number
+---@param r number
+function Tinkr.Util.Modules.Draw:RotateY(cx, cy, cz, px, py, pz, r) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param cx number
+---@param cy number
+---@param cz number
+---@param px number
+---@param py number
+---@param pz number
+---@param r number
+function Tinkr.Util.Modules.Draw:RotateZ(cx, cy, cz, px, py, pz, r) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+---@param maxD number
+function Tinkr.Util.Modules.Draw:Line(x1, y1, z1, x2, y2, z2, maxD) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param x1 number
+---@param y1 number
+---@param z1 number
+---@param x2 number
+---@param y2 number
+---@param z2 number
+function Tinkr.Util.Modules.Draw:LineRaw(x1, y1, z1, x2, y2, z2) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param sx number
+---@param sy number
+---@param ex number
+---@param ey number
+function Tinkr.Util.Modules.Draw:Line2D(sx, sy, ex, ey) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param steps number
+function Tinkr.Util.Modules.Draw:Circle(x, y, z, radius, steps) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param x number
+---@param y number
+---@param z number
+---@param radius number
+---@param height number
+function Tinkr.Util.Modules.Draw:Cylinder(x, y, z, radius, height) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param vectors any
+---@param x number
+---@param y number
+---@param z number
+---@param rotationX number
+---@param rotationY number
+---@param rotationZ number  
+function Tinkr.Util.Modules.Draw:Array(vectors, x, y, z, rotationX, rotationY, rotationZ) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param text string
+---@param font string
+---@param x number
+---@param y number
+---@param z number
+function Tinkr.Util.Modules.Draw:Text(text, font, x, y, z) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param config any
+---@param x number
+---@param y number
+---@param z number
+---@param alphaA number
+function Tinkr.Util.Modules.Draw:Texture(config, x, y, z, alphaA) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+function Tinkr.Util.Modules.Draw:ClearCanvas() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+function Tinkr.Util.Modules.Draw:Update() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+function Tinkr.Util.Modules.Draw:Helper() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+function Tinkr.Util.Modules.Draw:Enable() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+function Tinkr.Util.Modules.Draw:Disable() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+function Tinkr.Util.Modules.Draw:Enabled() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param callback function
+function Tinkr.Util.Modules.Draw:Sync(callback) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param hex any
+function Tinkr.Util.Modules.Draw:HexToRGB(hex) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param object any
+function Tinkr.Util.Modules.Draw:SetColorFromObject(object) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param object any
+function Tinkr.Util.Modules.Draw:GetColorFromObject(object) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param canvas any
+function Tinkr.Util.Modules.Draw:New(canvas) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param x number
+---@param y number
+---@param z number
+---@param size number
+---@param arc any
+---@param rotation any
+function Tinkr.Util.Modules.Draw:Arc(x, y, z, size, arc, rotation) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Draw/)<br>
+---@param x number
+---@param y number
+---@param z number
+---@param w number
+---@param l number
+---@param rot number
+function Tinkr.Util.Modules.Draw:Rectangle(x, y, z, w, l, rot) end
