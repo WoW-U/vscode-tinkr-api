@@ -2320,3 +2320,16 @@ function Tinkr.Util.Modules.File:Run(file, args) end
 ---@param path any
 ---@param args any
 function Tinkr.Util.Modules.File:LoadPackage(path, args) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Fly/)<br>
+---@class Tinkr.Util.Modules.Fly
+Tinkr.Util.Modules.Fly = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Fly/)<br>
+---@param startX number
+---@param startY number
+---@param startZ number
+---@param destX number
+---@param destY number
+---@param destZ number
+function Tinkr.Util.Modules.Fly:GetFlightRoute(startX, startY, startZ, destX, destY, destZ) end

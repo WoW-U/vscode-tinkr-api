@@ -9,3 +9,4 @@
 - Tinkr.Util.Modules.Evaluator
 - Tinkr.Util.Modules.Event
 - Tinkr.Util.Modules.File
+- Tinkr.Util.Modules.Fly
