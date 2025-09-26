@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2025-09-26
+
 ### Added
 
 - Tinkr.Util.Modules.Detour
