@@ -2333,3 +2333,12 @@ Tinkr.Util.Modules.Fly = {}
 ---@param destY number
 ---@param destZ number
 function Tinkr.Util.Modules.Fly:GetFlightRoute(startX, startY, startZ, destX, destY, destZ) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/FrameEvent/)<br>
+---@class Tinkr.Util.Modules.FrameEvent
+Tinkr.Util.Modules.FrameEvent = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/FrameEvent/)<br>
+---@param event string
+---@param callback function
+function Tinkr.Util.Modules.FrameEvent:Register(event, callback) end

@@ -10,3 +10,4 @@
 - Tinkr.Util.Modules.Event
 - Tinkr.Util.Modules.File
 - Tinkr.Util.Modules.Fly
+- Tinkr.Util.Modules.FrameEvent
