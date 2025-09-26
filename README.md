@@ -10,7 +10,7 @@ A Visual Studio Code extension that provides Lua library definitions for [**Tink
 - Press `CTRL + SHIFT + P` to open the command palette
 - type `Activate Tinkr API extension` and press enter
 
-![alt text](image.png)
+![command-palete-example](img/command-palete-example.png)
 
 ## Example
 Here’s an example of how to use Tinkr APIs with autocompletion and type checking:
