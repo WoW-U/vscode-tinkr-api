@@ -1946,3 +1946,55 @@ function Tinkr.Util.Crypto.Base64:Encode(input) end
 ---@param input string
 ---@return string
 function Tinkr.Util.Crypto.Base64:Decode(input) end
+
+---@class Tinkr.Util.Modules
+Tinkr.Util.Modules = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@class Tinkr.Util.Modules.Detour
+Tinkr.Util.Modules.Detour = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param path any
+function Tinkr.Util.Modules.Detour:SmoothPath(path) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param path any
+function Tinkr.Util.Modules.Detour:FlattenPath(path) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param path any
+function Tinkr.Util.Modules.Detour:PreparePath(path) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param object Tinkr.ObjectReference
+function Tinkr.Util.Modules.Detour:ToObject(object) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param destX number
+---@param destY number
+---@param destZ number
+function Tinkr.Util.Modules.Detour:ToPosition(destX, destY, destZ) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param startX number
+---@param startY number
+---@param startZ number
+---@param destX number
+---@param destY number
+---@param destZ number
+---@param mapID number
+function Tinkr.Util.Modules.Detour:Raw(startX, startY, startZ, destX, destY, destZ, mapID) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param route any
+---@param close any
+function Tinkr.Util.Modules.Detour:ConnectWaypoints(route, close) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+---@param path any
+---@param color any
+function Tinkr.Util.Modules.Detour:DebugPath(path, color) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Detour/)<br>
+function Tinkr.Util.Modules.Detour:DebugTiles() end
