@@ -11,3 +11,10 @@
 - Tinkr.Util.Modules.File
 - Tinkr.Util.Modules.Fly
 - Tinkr.Util.Modules.FrameEvent
+- Tinkr.Util.Modules.JSON
+- Tinkr.Util.Modules.LibStub
+- Tinkr.Util.Movement
+
+### Changed
+
+- added example to Tinkr.Util.HTTP

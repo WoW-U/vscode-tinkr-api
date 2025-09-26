@@ -1608,10 +1608,94 @@ function Tinkr.SetPitch(theta) end
 ---@class Tinkr.Util
 Tinkr.Util = {}
 
+---[Documentation](https://docs.tinkr.site/Modules/Util/HTTP/)<br>
 ---@class Tinkr.Util.HTTP
 Tinkr.Util.HTTP = {}
 
-
+---[Documentation](https://docs.tinkr.site/Modules/Util/HTTP/)<br>
+---Example:
+---```lua
+---local Tinkr = ...
+---local HTTP = Tinkr.Util.HTTP
+---
+----- Simple HTTP GET
+---HTTP:Request({
+---    url = 'https://example.com',
+---    method = 'GET',
+---    callback = function (status, res)
+---        if status == 200 then
+---            print(res)
+---        end
+---    end
+---})
+---
+----- An authorized JSON GET
+---HTTP:Request({
+---    url = 'https://example.com',
+---    method = 'GET',
+---    headers = {
+---        "Accept: application/json",
+---        "Authorization: bearer token"
+---    },
+---    callback = function (status, res)
+---        if status == 200 then
+---            print(res)
+---        end
+---    end
+---})
+---
+----- An authorized form POST
+---HTTP:Request({
+---    url = 'https://example.com',
+---    method = 'POST',
+---    fields = {
+---        foo = 'bar',
+---        baz = 'bang'
+---    },
+---    headers = {
+---        "Authorization: bearer token"
+---    },
+---    callback = function (status, res)
+---        if status == 200 then
+---            print(res)
+---        end
+---    end
+---})
+---
+----- A form POST with files
+---HTTP:Request({
+---    url = 'https://example.com',
+---    method = 'POST',
+---    fields = {
+---        foo = 'bar',
+---        baz = 'bang'
+---    },
+---    files = {
+---        fileA = "path/to/fileA.txt",
+---        fileB = "path/to/fileB.txt"
+---    },=
+---    callback = function (status, res)
+---        if status == 200 then
+---            print(res)
+---        end
+---    end
+---})
+---
+----- A form POST with raw JSON body
+---HTTP:Request({
+---    url = 'https://example.com',
+---    method = 'POST',
+---    body = JSON:Encode({ foo = 'bar', baz = 'bang' }),
+---    headers = {
+---        "Content-Type: application/json"
+---    },
+---    callback = function (status, res)
+---        if status == 200 then
+---            print(res)
+---        end
+---    end
+---})
+---```
 ---@param request {url:string, headers: string[], body: string, fields: table<string, any>, files: table<string, string>, method:string, callback:fun(status:number, response: string)}
 function Tinkr.Util.HTTP:Request(request) end
 
@@ -2342,3 +2426,66 @@ Tinkr.Util.Modules.FrameEvent = {}
 ---@param event string
 ---@param callback function
 function Tinkr.Util.Modules.FrameEvent:Register(event, callback) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/JSON/)<br>
+---@class Tinkr.Util.Modules.JSON
+Tinkr.Util.Modules.JSON = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/JSON/)<br>
+---@param luatbl any
+---@return string
+function Tinkr.Util.Modules.JSON:Encode(luatbl) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/JSON/)<br>
+---@param json string
+---@return any
+function Tinkr.Util.Modules.JSON:Decode(json) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/LibStub/)<br>
+---@class Tinkr.Util.Modules.LibStub
+Tinkr.Util.Modules.LibStub = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/LibStub/)<br>
+---@param major number
+---@param minor number
+function LibStub:NewLibrary(major, minor) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/LibStub/)<br>
+---@param major number
+---@param silent any
+function LibStub:GetLibrary(major, silent) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/LibStub/)<br>
+function LibStub:IterateLibraries() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@class Tinkr.Util.Movement
+Tinkr.Util.Movement = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@return boolean
+function Tinkr.Util.Movement:Hook() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@return boolean
+function Tinkr.Util.Movement:RemoveHook() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@return boolean
+function Tinkr.Util.Movement:IsHooked() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@return boolean
+function Tinkr.Util.Movement:GetStatus() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@return boolean, boolean
+function Tinkr.Util.Movement:Toggle() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@return boolean, boolean
+function Tinkr.Util.Movement:DisableMovements() end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/Movement/)<br>
+---@return boolean, boolean
+function Tinkr.Util.Movement:EnableMovements() end
