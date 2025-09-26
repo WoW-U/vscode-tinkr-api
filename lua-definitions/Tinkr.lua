@@ -2278,3 +2278,45 @@ function Tinkr.Util.Modules.Event:RemoveListener(id, callback) end
 ---[Documentation](https://docs.tinkr.site/Modules/Util/Event/)
 ---@param event string
 function Tinkr.Util.Modules.Event:GetListeners(event) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@class Tinkr.Util.Modules.File
+Tinkr.Util.Modules.File = {}
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param dir string
+function Tinkr.Util.Modules.File:List(dir) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param files any
+---@param dir any
+function Tinkr.Util.Modules.File:FlattenListing(files, dir) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param dir any
+---@param recurse any
+function Tinkr.Util.Modules.File:ListDirectory(dir, recurse) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param file any
+---@param data any
+---@param append any
+function Tinkr.Util.Modules.File:Write(file, data, append) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param file any
+function Tinkr.Util.Modules.File:Read(file) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param file any
+function Tinkr.Util.Modules.File:Delete(file) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param file any
+---@param args any
+function Tinkr.Util.Modules.File:Run(file, args) end
+
+---[Documentation](https://docs.tinkr.site/Modules/Util/File/)<br>
+---@param path any
+---@param args any
+function Tinkr.Util.Modules.File:LoadPackage(path, args) end
