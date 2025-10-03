@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.3.1] - 2025-10-04
+
+### Changed
+
+- nothing, I did to republish in marketplace
+
 ## [1.3.0] - 2025-09-26
 
 ### Added
